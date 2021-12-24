@@ -1,0 +1,3 @@
+Dependencies for Project 'Internals_ACA', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Nibble_Add.s)(0x61C55AAD)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 525"--list .\listings\nibble_add.lst --xref -o .\objects\nibble_add.o --depend .\objects\nibble_add.d)
+F (.\Positive_num_add.s)(0x61C55F25)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 525"--list .\listings\positive_num_add.lst --xref -o .\objects\positive_num_add.o --depend .\objects\positive_num_add.d)

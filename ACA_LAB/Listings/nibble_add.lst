@@ -1,0 +1,104 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Add Nibble N4 and N0 from memory location and store re
+                       sults in 4000000C
+    2 00000000         
+    3 00000000                 AREA             NIBBLE,CODE,READONLY
+    4 00000000                 ENTRY
+    5 00000000         START
+    6 00000000 E59F0024        LDR              R0, VALUE   ; load adress of va
+                                                            lue to R0
+    7 00000004 E5901000        LDR              R1,[R0]     ; loads content of 
+                                                            R0 to R1
+    8 00000008 E1A06001        MOV              R6,R1       ; move content of R
+                                                            1 to R6
+    9 0000000C E59F3020        LDR              R3, MASK    ; Masking R3 using 
+                                                            0x0000000F
+   10 00000010 E59F2018        LDR              R2,RESULT   ; loads Result adre
+                                                            ss to R2 ie 0x40000
+                                                            000C where results 
+                                                            will be stored. 
+   11 00000014 E0066003        AND              R6,R3       ; Masking all other
+                                                             unwanted bits (exc
+                                                            ept N0)
+   12 00000018         
+   13 00000018 E1A05821        MOV              R5,R1, LSR#16 ; Right shift val
+                                                            ue of R1 with 16 bi
+                                                            ts
+   14 0000001C E59F7010        LDR              R7, MASK    ; Masking R7 using 
+                                                            0x0000000F 
+   15 00000020 E0055007        AND              R5,R7       ; Masking all other
+                                                              unwanted bits (ex
+                                                            cept N4)
+   16 00000024 E0864005        ADD              R4,R6,R5    ; Add R6 and R5 and
+                                                             sotre it in R4 ie 
+                                                            adding N0 and N4 ni
+                                                            bbles.
+   17 00000028 E5824000        STR              R4,[R2]     ; store the result
+   18 0000002C         
+   19 0000002C 40000000 
+                       VALUE   DCD              &40000000
+   20 00000030 4000000C 
+                       RESULT  DCD              &4000000C
+   21 00000034 0000000F 
+                       MASK    DCD              &0000000F
+   22 00000038         
+   23 00000038                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\nibble_add.d -o.\objects\nibble_add.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Kei
+l_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1"
+ --predefine="__UVISION_VERSION SETA 525" --list=.\listings\nibble_add.lst Nibb
+le_Add.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MASK 00000034
+
+Symbol: MASK
+   Definitions
+      At line 21 in file Nibble_Add.s
+   Uses
+      At line 9 in file Nibble_Add.s
+      At line 14 in file Nibble_Add.s
+
+NIBBLE 00000000
+
+Symbol: NIBBLE
+   Definitions
+      At line 3 in file Nibble_Add.s
+   Uses
+      None
+Comment: NIBBLE unused
+RESULT 00000030
+
+Symbol: RESULT
+   Definitions
+      At line 20 in file Nibble_Add.s
+   Uses
+      At line 10 in file Nibble_Add.s
+Comment: RESULT used once
+START 00000000
+
+Symbol: START
+   Definitions
+      At line 5 in file Nibble_Add.s
+   Uses
+      None
+Comment: START unused
+VALUE 0000002C
+
+Symbol: VALUE
+   Definitions
+      At line 19 in file Nibble_Add.s
+   Uses
+      At line 6 in file Nibble_Add.s
+Comment: VALUE used once
+5 symbols
+337 symbols in table
